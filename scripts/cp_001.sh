@@ -47,15 +47,15 @@ echo "---------------------"
 echo
 echo "Check MIC appears to be reconciling ok"
 echo
-kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system | grep "reconciling identity assignment"
+kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system --all-containers=true --prefix=true --timestamps=true | grep "reconciling identity assignment"
 echo
 echo "Check MIC for errors or warnings"
 echo
-kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system | grep "error\|warning" -i
+kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "Check the managed identity controller (MIC) logs"
 echo
-kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system
+kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system --all-containers=true --prefix=true --timestamps=true
 echo
 echo "---------------------"
 echo "Cert-manager"
@@ -63,11 +63,11 @@ echo "---------------------"
 echo
 echo "Check cert-manager logs for errors or warnings"
 echo
-kubectl logs --selector "app"="cert-manager" -n ingress-system | grep "error\|warning" -i
+kubectl logs --selector "app"="cert-manager" -n ingress-system --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "Check cert-manager logs"
 echo
-kubectl logs --selector "app"="cert-manager" -n ingress-system
+kubectl logs --selector "app"="cert-manager" -n ingress-system --all-containers=true --prefix=true --timestamps=true
 echo
 echo "---------------------"
 echo "External-dns"
@@ -75,19 +75,19 @@ echo "---------------------"
 echo
 echo "Check external-dns logs for **zone not found** errors"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system | grep "Azure DNS zone was not found" -i
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true | grep "Azure DNS zone was not found" -i
 echo
 echo "Check external-dns logs for **No endpoints could be generated** errors"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system | grep "No endpoints could be generated" -i
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true | grep "No endpoints could be generated" -i
 echo
 echo "Check external-dns logs for errors or warnings"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system | grep "error\|warning" -i
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "Check external-dns logs"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true
 echo
 echo "---------------------"
 echo "Kyverno"
@@ -95,15 +95,15 @@ echo "---------------------"
 echo
 echo "Check Kyverno backup storage location is valid"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="velero" -n velero | grep "BackupStorageLocations is valid" -i
+kubectl logs --selector "app.kubernetes.io/instance"="velero" -n velero --all-containers=true --prefix=true --timestamps=true | grep "BackupStorageLocations is valid" -i
 echo
 echo "Check Kyverno logs for errors or warnings"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="kyverno" -n kyverno-system | grep "error\|warning" -i
+kubectl logs --selector "app.kubernetes.io/instance"="kyverno" -n kyverno-system --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "Check Kyverno logs"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="kyverno" -n kyverno-system
+kubectl logs --selector "app.kubernetes.io/instance"="kyverno" -n kyverno-system --all-containers=true --prefix=true --timestamps=true
 echo
 echo "---------------------"
 echo "All"

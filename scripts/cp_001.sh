@@ -7,7 +7,7 @@ echo "Current cluster info is:"
 kubectl cluster-info
 echo
 read -p "Ok to continue (y/n)? " -n 1 -r
-echo    # (optional) move to a new line
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo "---------------------"

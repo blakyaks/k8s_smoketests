@@ -6,6 +6,10 @@ echo
 echo "Current cluster info is:"
 kubectl cluster-info
 echo
+echo "---------------------------------------------------------------"
+echo "Infra services"
+echo "---------------------------------------------------------------"
+echo
 echo "---------------------"
 echo "Flux"
 echo "---------------------"
@@ -105,9 +109,57 @@ echo "Check Kyverno logs"
 echo
 kubectl logs --selector "app.kubernetes.io/instance"="kyverno" -n kyverno-system --all-containers=true --prefix=true --timestamps=true
 echo
+echo "---------------------------------------------------------------"
+echo "Application services"
+echo "---------------------------------------------------------------"
+echo
 echo "---------------------"
-echo "All"
+echo "Orchestrate API"
 echo "---------------------"
+echo
+echo "Check for Orchestrate *network exists* error"
+echo
+kubectl logs deployment/orchestrate-api -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "a chain with the same name already exists" -i
+echo
+echo "Check Orchestrate logs for errors or warnings"
+echo
+kubectl logs deployment/orchestrate-api -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "---------------------"
+echo "Orchestrate tx-listener"
+echo "---------------------"
+echo
+echo "Check Orchestrate logs for errors or warnings"
+echo
+kubectl logs deployment/orchestrate-tx-listener -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "---------------------"
+echo "Orchestrate tx-sender"
+echo "---------------------"
+echo
+echo "Check Orchestrate logs for errors or warnings"
+echo
+kubectl logs deployment/orchestrate-tx-sender -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "---------------------"
+echo "Orchestrate quorum-key-manager"
+echo "---------------------"
+echo
+echo "Check Orchestrate logs for errors or warnings"
+echo
+kubectl logs deployment/quorum-key-manager -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "---------------------"
+echo "Orchestrate vault-configurer"
+echo "---------------------"
+echo
+echo "Check Orchestrate logs for errors or warnings"
+echo
+kubectl logs deployment/vault-configurer -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "---------------------------------------------------------------"
+echo "All resources"
+echo "---------------------------------------------------------------"
 echo
 echo "Check all pods statuses"
 echo

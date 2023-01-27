@@ -184,10 +184,94 @@ echo
 kubectl logs deployment/carbon-front -n carbon-place --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "------------------------------------------"
-echo "Codefi-assets carbon-front"
+echo "Codefi-assets admin-api"
 echo "------------------------------------------"
 echo
 kubectl logs deployment/admin-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets assets-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/assets-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets assets-front"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/assets-front -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets entity-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/entity-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets external-identity-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/external-identity-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets i18n-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/i18n-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets kyc-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/kyc-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets mailing-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/mailing-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets metadata-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/metadata-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets smart-contract-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/smart-contract-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets workflow-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/workflow-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Kafka confluent-stack-cp-schema-registry"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/confluent-stack-cp-schema-registry -n kafka --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Kafka kafka-ui"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/kafka-ui -n kafka --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "pgadmin"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/pgadmin -n pgadmin --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "pgadmin"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/pgadmin -n pgadmin --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "---------------------------------------------------------------"
 echo "All resources"

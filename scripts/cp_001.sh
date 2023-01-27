@@ -267,12 +267,6 @@ echo "------------------------------------------"
 echo
 kubectl logs deployment/pgadmin -n pgadmin --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
-echo "------------------------------------------"
-echo "pgadmin"
-echo "------------------------------------------"
-echo
-kubectl logs deployment/pgadmin -n pgadmin --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
-echo
 echo "---------------------------------------------------------------"
 echo "All resources"
 echo "---------------------------------------------------------------"

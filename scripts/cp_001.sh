@@ -1,7 +1,7 @@
 #!/bin/bash
 clear
 echo "AKS cluster smoketest"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Current cluster info is:"
 kubectl cluster-info
@@ -10,9 +10,9 @@ echo "---------------------------------------------------------------"
 echo "Infra services"
 echo "---------------------------------------------------------------"
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Flux"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Check Flux git sources"
 echo
@@ -45,9 +45,9 @@ kubectl get kustomizations -A | sed 's/ \+ /\t/g' | q -H -t "select READY, count
 echo
 kubectl get kustomizations -A | sed 's/ \+ /\t/g' | q -H -t "select * from -" -O -b
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Azure AD pod identity"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Check MIC appears to be reconciling ok"
 echo
@@ -61,9 +61,9 @@ echo "Check the managed identity controller (MIC) logs"
 echo
 kubectl logs --selector "app.kubernetes.io/component"="mic" -n pod-identity-system --all-containers=true --prefix=true --timestamps=true
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Cert-manager"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Check cert-manager logs for errors or warnings"
 echo
@@ -73,9 +73,9 @@ echo "Check cert-manager logs"
 echo
 kubectl logs --selector "app"="cert-manager" -n ingress-system --all-containers=true --prefix=true --timestamps=true
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "External-dns"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Check external-dns logs for **zone not found** errors"
 echo
@@ -93,9 +93,9 @@ echo "Check external-dns logs"
 echo
 kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Kyverno"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Check Kyverno backup storage location is valid"
 echo
@@ -113,49 +113,81 @@ echo "---------------------------------------------------------------"
 echo "Application services"
 echo "---------------------------------------------------------------"
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Orchestrate API"
-echo "---------------------"
+echo "------------------------------------------"
 echo
 echo "Check for Orchestrate *network exists* error"
 echo
 kubectl logs deployment/orchestrate-api -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "a chain with the same name already exists" -i
 echo
-echo "Check Orchestrate logs for errors or warnings"
-echo
 kubectl logs deployment/orchestrate-api -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Orchestrate tx-listener"
-echo "---------------------"
-echo
-echo "Check Orchestrate logs for errors or warnings"
+echo "------------------------------------------"
 echo
 kubectl logs deployment/orchestrate-tx-listener -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Orchestrate tx-sender"
-echo "---------------------"
-echo
-echo "Check Orchestrate logs for errors or warnings"
+echo "------------------------------------------"
 echo
 kubectl logs deployment/orchestrate-tx-sender -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Orchestrate quorum-key-manager"
-echo "---------------------"
-echo
-echo "Check Orchestrate logs for errors or warnings"
+echo "------------------------------------------"
 echo
 kubectl logs deployment/quorum-key-manager -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
-echo "---------------------"
+echo "------------------------------------------"
 echo "Orchestrate vault-configurer"
-echo "---------------------"
-echo
-echo "Check Orchestrate logs for errors or warnings"
+echo "------------------------------------------"
 echo
 kubectl logs deployment/vault-configurer -n orchestrate --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Besu explorer"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/explorer -n besu --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Besu explorer-api"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/explorer-api -n besu --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Besu explorer-ingestion"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/explorer-ingestion -n besu --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Besu explorer-mongodb"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/explorer-mongodb -n besu --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Carbon-place carbon-external"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/carbon-external -n carbon-place --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Carbon-place carbon-front"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/carbon-front -n carbon-place --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
+echo
+echo "------------------------------------------"
+echo "Codefi-assets carbon-front"
+echo "------------------------------------------"
+echo
+kubectl logs deployment/admin-api -n codefi-assets --all-containers=true --prefix=true --timestamps=true | grep "error\|warning" -i
 echo
 echo "---------------------------------------------------------------"
 echo "All resources"

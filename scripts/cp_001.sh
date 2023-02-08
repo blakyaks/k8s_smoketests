@@ -68,24 +68,43 @@ echo "Cert-manager - Errors or warnings"
 echo "------------------------------------------"
 echo
 kubectl logs --selector "app"="cert-manager" -n ingress-system --all-containers=true --prefix=true --timestamps=true --since=12h | grep "error\|warning" -i -B 5 -A 5
+
 echo
 echo "------------------------------------------"
-echo "External-dns - **zone not found** errors"
+echo "External-dns-private - **zone not found** errors"
 echo "------------------------------------------"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true --since=12h | grep "Azure DNS zone was not found" -i
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns-private" -n external-dns --all-containers=true --prefix=true --timestamps=true --since=12h | grep "Azure DNS zone was not found" -i
+echo
+echo "------------------------------------------"
+echo "External-dns-private - **No endpoints could be generated** errors"
+echo "------------------------------------------"
+echo
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns-private" -n external-dns --all-containers=true --prefix=true --timestamps=true --since=12h | grep "No endpoints could be generated" -i
+echo
+echo "------------------------------------------"
+echo "External-dns-private - Errors or warnings"
+echo "------------------------------------------"
+echo
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns-private" -n external-dns --all-containers=true --prefix=true --timestamps=true --since=12h | grep "error\|warning" -i -B 5 -A 5
+echo
+echo "------------------------------------------"
+echo "External-dns-public - **zone not found** errors"
+echo "------------------------------------------"
+echo
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns-public" -n external-dns --all-containers=true --prefix=true --timestamps=true --since=12h | grep "Azure DNS zone was not found" -i
 echo
 echo "------------------------------------------"
 echo "External-dns - **No endpoints could be generated** errors"
 echo "------------------------------------------"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true --since=12h | grep "No endpoints could be generated" -i
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns-public" -n external-dns --all-containers=true --prefix=true --timestamps=true --since=12h | grep "No endpoints could be generated" -i
 echo
 echo "------------------------------------------"
 echo "External-dns - Errors or warnings"
 echo "------------------------------------------"
 echo
-kubectl logs --selector "app.kubernetes.io/instance"="external-dns" -n ingress-system --all-containers=true --prefix=true --timestamps=true --since=12h | grep "error\|warning" -i -B 5 -A 5
+kubectl logs --selector "app.kubernetes.io/instance"="external-dns-public" -n external-dns --all-containers=true --prefix=true --timestamps=true --since=12h | grep "error\|warning" -i -B 5 -A 5
 echo
 echo "------------------------------------------"
 echo "Kyverno - Storage location is valid"

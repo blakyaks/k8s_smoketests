@@ -1,0 +1,53 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    meta.helm.sh/release-name: assets-front
+    meta.helm.sh/release-namespace: codefi-assets
+    nginx.ingress.kubernetes.io/proxy-body-size: 50m
+  creationTimestamp: "2023-02-13T11:14:00Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/instance: assets-front
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: assets-front
+    app.kubernetes.io/version: userDefined
+    helm.sh/chart: generic-app-0.5.0
+    helm.toolkit.fluxcd.io/name: assets-front
+    helm.toolkit.fluxcd.io/namespace: codefi-assets
+  name: assets-front
+  namespace: codefi-assets
+  resourceVersion: "11788294"
+  uid: 8df9d869-dd97-4270-977c-3993779dac97
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: codefi-assets.dev-02-cl1.mvp.cppoc.online
+    http:
+      paths:
+      - backend:
+          service:
+            name: assets-front
+            port:
+              number: 8080
+        path: /
+        pathType: ImplementationSpecific
+  - host: '*.codefi-assets.dev-02-cl1.mvp.cppoc.online'
+    http:
+      paths:
+      - backend:
+          service:
+            name: assets-front
+            port:
+              number: 8080
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - codefi-assets.dev-02-cl1.mvp.cppoc.online
+    - '*.codefi-assets.dev-02-cl1.mvp.cppoc.online'
+    secretName: codefi-assets.dev-02-cl1.mvp.cppoc.online
+status:
+  loadBalancer:
+    ingress:
+    - ip: 10.0.80.7

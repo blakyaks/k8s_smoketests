@@ -1,0 +1,1082 @@
+[H[2J[3J------------------------------------------
+AKS cluster smoketest
+------------------------------------------
+
+Current cluster info is:
+[0;32mKubernetes control plane[0m is running at [0;33mhttps://aks-uks-cp-dev-01-cl1-a17d2dac.privatelink.uksouth.azmk8s.io:443[0m
+[0;32mCoreDNS[0m is running at [0;33mhttps://aks-uks-cp-dev-01-cl1-a17d2dac.privatelink.uksouth.azmk8s.io:443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy[0m
+[0;32mMetrics-server[0m is running at [0;33mhttps://aks-uks-cp-dev-01-cl1-a17d2dac.privatelink.uksouth.azmk8s.io:443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy[0m
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+
+---------------------------------------------------------------
+Infra services
+---------------------------------------------------------------
+
+------------------------------------------
+Flux - Check Flux git sources
+------------------------------------------
+
+READY	cnt
+True 	3  
+
+NAMESPACE  	NAME                       	READY	STATUS                                                                                 
+flux-system	flux-app                   	True 	stored artifact for revision 'feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee'
+flux-system	flux-system                	True 	stored artifact for revision 'main/a8bbc176cf7e8847f1d158f4d6080283045eb04b'           
+flux-system	helm-charts-in-flux-gitrepo	True 	stored artifact for revision 'feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee'
+
+------------------------------------------
+Flux - Check Flux helm repo sources
+------------------------------------------
+
+READY	cnt
+True 	24 
+
+NAMESPACE  	NAME                	READY	STATUS                                                                                         
+flux-system	aad-pod-identity    	True 	stored artifact for revision '79d5494f4c6094aa59c7d47f77c5b56588b1044b9ddd2962dfda65a6f84e8e51'
+flux-system	banzaicloud         	True 	stored artifact for revision '0804bd5338b987324383a2f5eeb974037c311e71c9a62167df1205b84f42e20c'
+flux-system	bitnami             	True 	stored artifact for revision '759f54f644634ac7f41878318a842f90d1a1fffd5624d72061088c20b694c09b'
+flux-system	bitnami-post-2022   	True 	stored artifact for revision '4cfcc3f75491c4b92625b18e1357c0b0c6b24ab02c4c6515e1ea2523d3db2dc2'
+flux-system	confluentinc        	True 	stored artifact for revision 'c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0'
+flux-system	consensys           	True 	stored artifact for revision '784c4b5f758a4e98cafcce0847ad28b1789b2d1a3bba1a7e2b34b9aad704c61b'
+flux-system	cp-helm-charts      	True 	stored artifact for revision 'c8c908e0c0f2fcfa40ff665f2e5a50fbdf50df12189a7701b4e157a9263525d0'
+flux-system	elastic             	True 	stored artifact for revision '58e7328681b8a16f0b3321fa6da440036d67089c893a82f2e6cac02009293313'
+flux-system	emberstack          	True 	stored artifact for revision 'a114c924b5578774a8bbbdc14fb6b1fdb5232b557504f29f110128093913120a'
+flux-system	gitlab              	True 	stored artifact for revision '7630f479b1702177dc75e89d42b38e029d56841f4816d1e590b87b29bd2e309b'
+flux-system	grafana             	True 	stored artifact for revision '0e959c6b970c841f0b59afa0414da2f3096c377f61e800f7f25227e7991c1e9e'
+flux-system	incubator           	True 	stored artifact for revision 'b29bb5693fc36b56aadcc53b2ab6020ac9f3707ffe7365e27b8132070207e51f'
+flux-system	jetstack            	True 	stored artifact for revision 'cb0e4cc57078e24c180656af233acd2d93ea22918db2c8115035662da36f51c2'
+flux-system	kube-eagle          	True 	stored artifact for revision 'acc1b68f82b4defda495dc9a686d87eaf975c2e814d2cd484fb70e11a625f22c'
+flux-system	kube2iam            	True 	stored artifact for revision '907fa21691f36f10dbaac0c823cbb94c02e06accdec88dc270f82aeff107a837'
+flux-system	kubernetes-dashboard	True 	stored artifact for revision '5cad74a1de97b87c7172a9bf44731cc4c8f7ebd8b017aeab17ea964cf65bf58c'
+flux-system	kured               	True 	stored artifact for revision 'cabfca1009c17f170ce3f8ea6b88e706a7b9ebb1c2cd6759d86a7ca5b55ecfa0'
+flux-system	kyverno             	True 	stored artifact for revision '9b8463a94e6f973c69dc8d379b6a3624a79412d9e247fe4ce7ab94000ba4be05'
+flux-system	kyverno-gui         	True 	stored artifact for revision '969f8de6f18a68a5067517b9cc9f0647d382fbf6e4e1c7db41422396c1df7ec7'
+flux-system	minio               	True 	stored artifact for revision '5ffe1593ba320f2f51bc17d8cb340f9bc806eb0cfd1218306942f0b14b0a5133'
+flux-system	oauth2-proxy        	True 	stored artifact for revision '8488fb18d72b983b14664b340eb0633d7031a94966fe8c7b5ef50b8ac8191272'
+flux-system	prometheus-community	True 	stored artifact for revision 'e98f8d3cbce205ea9f3adf0222074abe74ace7e0b1249301bf0f3f17a3bda7b7'
+flux-system	stakater            	True 	stored artifact for revision 'f1cbd804b6dc424d0b96b2a0f01824930c69dab7706e165a914fe5792adcb5d4'
+flux-system	velero              	True 	stored artifact for revision 'eff1284a69fc7293ad2a4618c30d63ef6f486bd74ea3a8d3301866b899facdf6'
+
+------------------------------------------
+Flux - Check Flux helm releases
+------------------------------------------
+
+helmrelease_status              	cnt
+Release reconciliation succeeded	43 
+
+NAMESPACE          	NAME                    	AGE 	READY	STATUS                          
+besu               	besu-node-01            	17h 	True 	Release reconciliation succeeded
+besu               	besu-node-02            	17h 	True 	Release reconciliation succeeded
+besu               	besu-node-03            	17h 	True 	Release reconciliation succeeded
+besu               	besu-node-04            	17h 	True 	Release reconciliation succeeded
+besu               	explorer                	17h 	True 	Release reconciliation succeeded
+besu               	explorer-api            	17h 	True 	Release reconciliation succeeded
+besu               	explorer-ingestion      	17h 	True 	Release reconciliation succeeded
+besu               	explorer-mongodb        	17h 	True 	Release reconciliation succeeded
+carbon-place       	carbon-external         	19m 	True 	Release reconciliation succeeded
+carbon-place       	carbon-front            	19m 	True 	Release reconciliation succeeded
+codefi-assets      	admin-api               	104m	True 	Release reconciliation succeeded
+codefi-assets      	assets-api              	104m	True 	Release reconciliation succeeded
+codefi-assets      	assets-front            	104m	True 	Release reconciliation succeeded
+codefi-assets      	entity-api              	104m	True 	Release reconciliation succeeded
+codefi-assets      	external-identity-api   	104m	True 	Release reconciliation succeeded
+codefi-assets      	i18n-api                	104m	True 	Release reconciliation succeeded
+codefi-assets      	kyc-api                 	104m	True 	Release reconciliation succeeded
+codefi-assets      	mailing-api             	104m	True 	Release reconciliation succeeded
+codefi-assets      	metadata-api            	104m	True 	Release reconciliation succeeded
+codefi-assets      	smart-contract-api      	104m	True 	Release reconciliation succeeded
+codefi-assets      	workflow-api            	104m	True 	Release reconciliation succeeded
+external-dns       	external-dns-private    	18h 	True 	Release reconciliation succeeded
+external-dns       	external-dns-public     	18h 	True 	Release reconciliation succeeded
+ingress-system     	cert-manager            	18h 	True 	Release reconciliation succeeded
+ingress-system     	nginx-ingress-controller	18h 	True 	Release reconciliation succeeded
+kafka              	confluent-stack         	17h 	True 	Release reconciliation succeeded
+kafka              	kafka                   	17h 	True 	Release reconciliation succeeded
+kafka              	kafka-ui                	17h 	True 	Release reconciliation succeeded
+kured-system       	kured                   	18h 	True 	Release reconciliation succeeded
+kyverno-system     	kyverno                 	18h 	True 	Release reconciliation succeeded
+kyverno-system     	kyverno-gui             	18h 	True 	Release reconciliation succeeded
+oauth2-proxy       	oauth2-proxy            	17h 	True 	Release reconciliation succeeded
+orchestrate        	orchestrate             	17h 	True 	Release reconciliation succeeded
+orchestrate        	quorum-key-manager      	116m	True 	Release reconciliation succeeded
+pgadmin            	pgadmin                 	17h 	True 	Release reconciliation succeeded
+pod-identity-system	aad-pod-identity        	18h 	True 	Release reconciliation succeeded
+prometheus         	loki-stack              	18h 	True 	Release reconciliation succeeded
+prometheus         	prometheus-stack        	18h 	True 	Release reconciliation succeeded
+redis              	redis                   	17h 	True 	Release reconciliation succeeded
+reflector          	reflector               	18h 	True 	Release reconciliation succeeded
+reloader           	reloader                	18h 	True 	Release reconciliation succeeded
+vault-system       	vault-operator          	18h 	True 	Release reconciliation succeeded
+velero             	velero                  	18h 	True 	Release reconciliation succeeded
+
+------------------------------------------
+Flux - Check Flux helm charts
+------------------------------------------
+
+READY	cnt
+True 	43 
+
+NAMESPACE  	NAME                                   	READY	STATUS                                                       
+flux-system	besu-besu-node-01                      	True 	packaged 'besu-node' chart with version '1.3.1'              
+flux-system	besu-besu-node-02                      	True 	packaged 'besu-node' chart with version '1.3.1'              
+flux-system	besu-besu-node-03                      	True 	packaged 'besu-node' chart with version '1.3.1'              
+flux-system	besu-besu-node-04                      	True 	packaged 'besu-node' chart with version '1.3.1'              
+flux-system	besu-explorer                          	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	besu-explorer-api                      	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	besu-explorer-ingestion                	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	besu-explorer-mongodb                  	True 	pulled 'mongodb' chart with version '10.10.1'                
+flux-system	carbon-place-carbon-external           	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	carbon-place-carbon-front              	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-admin-api                	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-assets-api               	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-assets-front             	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-entity-api               	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-external-identity-api    	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-i18n-api                 	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-kyc-api                  	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-mailing-api              	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-metadata-api             	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-smart-contract-api       	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	codefi-assets-workflow-api             	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	external-dns-external-dns-private      	True 	pulled 'external-dns' chart with version '6.8.2'             
+flux-system	external-dns-external-dns-public       	True 	pulled 'external-dns' chart with version '6.8.2'             
+flux-system	ingress-system-cert-manager            	True 	pulled 'cert-manager' chart with version 'v1.9.1'            
+flux-system	ingress-system-nginx-ingress-controller	True 	pulled 'nginx-ingress-controller' chart with version '9.3.16'
+flux-system	kafka-confluent-stack                  	True 	pulled 'cp-helm-charts' chart with version '0.6.1'           
+flux-system	kafka-kafka                            	True 	pulled 'kafka' chart with version '19.1.3'                   
+flux-system	kafka-kafka-ui                         	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	kured-system-kured                     	True 	pulled 'kured' chart with version '4.2.0'                    
+flux-system	kyverno-system-kyverno                 	True 	pulled 'kyverno' chart with version '2.6.5'                  
+flux-system	kyverno-system-kyverno-gui             	True 	pulled 'policy-reporter' chart with version '2.14.1'         
+flux-system	oauth2-proxy-oauth2-proxy              	True 	pulled 'oauth2-proxy' chart with version '6.5.0'             
+flux-system	orchestrate-orchestrate                	True 	pulled 'orchestrate' chart with version '1.0.8'              
+flux-system	orchestrate-quorum-key-manager         	True 	pulled 'quorumkeymanager' chart with version '1.1.5'         
+flux-system	pgadmin-pgadmin                        	True 	packaged 'generic-app' chart with version '0.5.0'            
+flux-system	pod-identity-system-aad-pod-identity   	True 	pulled 'aad-pod-identity' chart with version '4.1.15'        
+flux-system	prometheus-loki-stack                  	True 	pulled 'loki-stack' chart with version '2.8.5'               
+flux-system	prometheus-prometheus-stack            	True 	pulled 'kube-prometheus-stack' chart with version '41.7.4'   
+flux-system	redis-redis                            	True 	pulled 'redis' chart with version '17.1.5'                   
+flux-system	reflector-reflector                    	True 	pulled 'reflector' chart with version '6.1.47'               
+flux-system	reloader-reloader                      	True 	pulled 'reloader' chart with version 'v0.0.124'              
+flux-system	vault-system-vault-operator            	True 	pulled 'vault-operator' chart with version '1.14.4'          
+flux-system	velero-velero                          	True 	pulled 'velero' chart with version '2.32.6'                  
+
+------------------------------------------
+Flux - Check Flux Kustomizations
+------------------------------------------
+
+READY  	cnt
+True   	31 
+Unknown	1  
+
+NAMESPACE  	NAME                         	AGE 	READY	STATUS                                                                    
+flux-system	aad-pod-identity             	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	before-apps-global-resources 	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	before-infra-global-resources	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	besu                         	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	blakyaks-test                	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	carbon-place                 	19m 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	cert-manager                 	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	cluster-issuers              	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	codefi-assets                	106m	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	external-dns-private         	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	external-dns-public          	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	external-ingress             	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	flux-app                     	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	flux-system                  	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	image-automation             	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	infra-external-ingress       	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	kafka                        	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	kubebench                    	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	kured                        	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	kyverno                      	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	kyverno-gui                  	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	kyverno-policy               	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	nginx                        	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	oauth2-proxy                 	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	orchestrate                  	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	pgadmin                      	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	prometheus-stack             	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	redis                        	17h 	True 	Applied revision: feature/initial/50096e207525925273b9a2eaff72c40f5c84f1ee
+flux-system	reflector                    	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	reloader                     	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	vault-operator               	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+flux-system	velero                       	18h 	True 	Applied revision: main/a8bbc176cf7e8847f1d158f4d6080283045eb04b           
+
+------------------------------------------
+AAD podId - Check MIC reconciling
+------------------------------------------
+
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:48:50.418548150Z I0216 10:48:50.418365       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero] on node aks-user02-31637500-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:51:50.375317792Z I0216 10:51:50.375073       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero] on node aks-user02-31637500-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:51:50.414249902Z I0216 10:51:50.413871       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-keyvault-sops /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-dns01 /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-flux-acr] on node aks-user01-36716385-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:51:50.465064358Z I0216 10:51:50.464902       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-dns01 /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero] on node aks-user03-23183170-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:54:50.512384550Z I0216 10:54:50.512210       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-dns01] on node aks-user03-23183170-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:54:50.566087668Z I0216 10:54:50.565866       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-dns01 /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-flux-acr /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-keyvault-sops] on node aks-user01-36716385-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:54:50.648350575Z I0216 10:54:50.648153       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero] on node aks-user02-31637500-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:57:50.428693042Z I0216 10:57:50.428503       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-dns01 /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-flux-acr /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-keyvault-sops] on node aks-user01-36716385-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:57:50.498156819Z I0216 10:57:50.497834       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero] on node aks-user02-31637500-vmss
+[pod/aad-pod-identity-mic-574ccd7c8f-p2n4b/mic] 2023-02-16T10:57:50.551434046Z I0216 10:57:50.551223       1 mic.go:1466] reconciling identity assignment for [/subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-velero /subscriptions/20fedd8c-483e-462d-95b3-bcb3310eb853/resourceGroups/rg-uks-cp-dev-01-cl1-aks/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi-uks-cp-dev-01-cl1-dns01] on node aks-user03-23183170-vmss
+
+------------------------------------------
+AAD podId - Errors or warnings
+------------------------------------------
+
+
+------------------------------------------
+Cert-manager - Errors or warnings
+------------------------------------------
+
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:24.288477840Z I0216 10:28:24.288324       1 conditions.go:261] Setting lastTransitionTime for CertificateRequest "codefi-assets-ingress-tls-znvbg" condition "Ready" to 2023-02-16 10:28:24.288316839 +0000 UTC m=+63099.099351723
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:24.301149971Z I0216 10:28:24.300997       1 conditions.go:261] Setting lastTransitionTime for CertificateRequest "codefi-assets-ingress-tls-znvbg" condition "Ready" to 2023-02-16 10:28:24.300991971 +0000 UTC m=+63099.112026855
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:24.312506099Z I0216 10:28:24.312257       1 controller.go:161] cert-manager/certificaterequests-issuer-acme "msg"="re-queuing item due to optimistic locking on resource" "error"="Operation cannot be fulfilled on certificaterequests.cert-manager.io \"codefi-assets-ingress-tls-znvbg\": the object has been modified; please apply your changes to the latest version and try again" "key"="ingress-system/codefi-assets-ingress-tls-znvbg"
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.750498596Z I0216 10:28:28.750314       1 acme.go:216] cert-manager/certificaterequests-issuer-acme/sign "msg"="certificate issued" "related_resource_kind"="Order" "related_resource_name"="codefi-assets-ingress-tls-znvbg-2287396326" "related_resource_namespace"="ingress-system" "related_resource_version"="v1" "resource_kind"="CertificateRequest" "resource_name"="codefi-assets-ingress-tls-znvbg" "resource_namespace"="ingress-system" "resource_version"="v1"
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.750608496Z I0216 10:28:28.750423       1 conditions.go:250] Found status change for CertificateRequest "codefi-assets-ingress-tls-znvbg" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2023-02-16 10:28:28.750417296 +0000 UTC m=+63103.561452080
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.810436608Z I0216 10:28:28.810259       1 controller.go:161] cert-manager/certificates-readiness "msg"="re-queuing item due to optimistic locking on resource" "error"="Operation cannot be fulfilled on certificates.cert-manager.io \"codefi-assets-ingress-tls\": the object has been modified; please apply your changes to the latest version and try again" "key"="ingress-system/codefi-assets-ingress-tls"
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.811151809Z I0216 10:28:28.810954       1 conditions.go:190] Found status change for Certificate "codefi-assets-ingress-tls" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2023-02-16 10:28:28.810929809 +0000 UTC m=+63103.621964593
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.832377749Z I0216 10:28:28.832262       1 controller.go:161] cert-manager/certificates-readiness "msg"="re-queuing item due to optimistic locking on resource" "error"="Operation cannot be fulfilled on certificates.cert-manager.io \"codefi-assets-ingress-tls\": the object has been modified; please apply your changes to the latest version and try again" "key"="ingress-system/codefi-assets-ingress-tls"
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.832924550Z I0216 10:28:28.832806       1 conditions.go:190] Found status change for Certificate "codefi-assets-ingress-tls" condition "Ready": "False" -> "True"; setting lastTransitionTime to 2023-02-16 10:28:28.83280055 +0000 UTC m=+63103.643835334
+[pod/cert-manager-6dbd76587-9jm7k/cert-manager] 2023-02-16T10:28:28.833712052Z I0216 10:28:28.833585       1 controller.go:161] cert-manager/certificates-issuing "msg"="re-queuing item due to optimistic locking on resource" "error"="Operation cannot be fulfilled on certificates.cert-manager.io \"codefi-assets-ingress-tls\": the object has been modified; please apply your changes to the latest version and try again" "key"="ingress-system/codefi-assets-ingress-tls"
+
+------------------------------------------
+External-dns-private - **zone not found** errors
+------------------------------------------
+
+
+------------------------------------------
+External-dns-private - **No endpoints could be generated** errors
+------------------------------------------
+
+
+------------------------------------------
+External-dns-private - Errors or warnings
+------------------------------------------
+
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:57:01.669276042Z {"level":"info","msg":"All missing records are created","time":"2023-02-16T10:57:01Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:57:01.669283642Z {"level":"info","msg":"All records are already up to date","time":"2023-02-16T10:57:01Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:58:02.404487067Z {"level":"info","msg":"Updating TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online'.","time":"2023-02-16T10:58:02Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:58:02.620319545Z {"level":"error","msg":"Failed to update TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online': privatedns.RecordSetsClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code=\"BadRequest\" Message=\"The domain name 'a-*.codefi-assets.dev-01-cl1.mvp.cppoc.online' is invalid. The provided record set relative name 'a-*.codefi-assets' is invalid.\"","time":"2023-02-16T10:58:02Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:58:02.620379146Z {"level":"info","msg":"All missing records are created","time":"2023-02-16T10:58:02Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:58:02.620385846Z {"level":"info","msg":"All records are already up to date","time":"2023-02-16T10:58:02Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:59:03.264710678Z {"level":"info","msg":"Updating TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online'.","time":"2023-02-16T10:59:03Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:59:03.511381960Z {"level":"error","msg":"Failed to update TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online': privatedns.RecordSetsClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code=\"BadRequest\" Message=\"The domain name 'a-*.codefi-assets.dev-01-cl1.mvp.cppoc.online' is invalid. The provided record set relative name 'a-*.codefi-assets' is invalid.\"","time":"2023-02-16T10:59:03Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:59:03.511440661Z {"level":"info","msg":"All missing records are created","time":"2023-02-16T10:59:03Z"}
+[pod/external-dns-private-648d57c866-7h9qm/external-dns] 2023-02-16T10:59:03.511448261Z {"level":"info","msg":"All records are already up to date","time":"2023-02-16T10:59:03Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:57:15.715358048Z {"level":"info","msg":"All missing records are created","time":"2023-02-16T10:57:15Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:57:15.715384048Z {"level":"info","msg":"All records are already up to date","time":"2023-02-16T10:57:15Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:58:16.594735273Z {"level":"info","msg":"Updating TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online'.","time":"2023-02-16T10:58:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:58:16.800935691Z {"level":"error","msg":"Failed to update TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online': privatedns.RecordSetsClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code=\"BadRequest\" Message=\"The domain name 'a-*.codefi-assets.dev-01-cl1.mvp.cppoc.online' is invalid. The provided record set relative name 'a-*.codefi-assets' is invalid.\"","time":"2023-02-16T10:58:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:58:16.800986291Z {"level":"info","msg":"All missing records are created","time":"2023-02-16T10:58:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:58:16.800995191Z {"level":"info","msg":"All records are already up to date","time":"2023-02-16T10:58:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:59:16.014350399Z {"level":"info","msg":"Updating TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online'.","time":"2023-02-16T10:59:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:59:16.296482756Z {"level":"error","msg":"Failed to update TXT record named 'a-*.codefi-assets' to '\"heritage=external-dns,external-dns/owner=default,external-dns/resource=service/ingress-system/nginx-ingress-controller\"' for Azure Private DNS zone 'dev-01-cl1.mvp.cppoc.online': privatedns.RecordSetsClient#CreateOrUpdate: Failure responding to request: StatusCode=400 -- Original Error: autorest/azure: Service returned an error. Status=400 Code=\"BadRequest\" Message=\"The domain name 'a-*.codefi-assets.dev-01-cl1.mvp.cppoc.online' is invalid. The provided record set relative name 'a-*.codefi-assets' is invalid.\"","time":"2023-02-16T10:59:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:59:16.296538056Z {"level":"info","msg":"All missing records are created","time":"2023-02-16T10:59:16Z"}
+[pod/external-dns-private-648d57c866-l5rxl/external-dns] 2023-02-16T10:59:16.296546956Z {"level":"info","msg":"All records are already up to date","time":"2023-02-16T10:59:16Z"}
+
+------------------------------------------
+External-dns-public - **zone not found** errors
+------------------------------------------
+
+
+------------------------------------------
+External-dns - **No endpoints could be generated** errors
+------------------------------------------
+
+
+------------------------------------------
+External-dns - Errors or warnings
+------------------------------------------
+
+
+------------------------------------------
+Kyverno - Storage location is valid
+------------------------------------------
+
+[pod/velero-64d88dfd9b-ztvmr/velero] 2023-02-16T10:54:28.053660016Z time="2023-02-16T10:54:28Z" level=info msg="BackupStorageLocations is valid, marking as available" backup-storage-location=velero/default controller=backup-storage-location logSource="pkg/controller/backup_storage_location_controller.go:116"
+[pod/velero-64d88dfd9b-ztvmr/velero] 2023-02-16T10:55:38.026868240Z time="2023-02-16T10:55:38Z" level=info msg="BackupStorageLocations is valid, marking as available" backup-storage-location=velero/default controller=backup-storage-location logSource="pkg/controller/backup_storage_location_controller.go:116"
+[pod/velero-64d88dfd9b-ztvmr/velero] 2023-02-16T10:56:48.017399679Z time="2023-02-16T10:56:48Z" level=info msg="BackupStorageLocations is valid, marking as available" backup-storage-location=velero/default controller=backup-storage-location logSource="pkg/controller/backup_storage_location_controller.go:116"
+[pod/velero-64d88dfd9b-ztvmr/velero] 2023-02-16T10:57:58.063440307Z time="2023-02-16T10:57:58Z" level=info msg="BackupStorageLocations is valid, marking as available" backup-storage-location=velero/default controller=backup-storage-location logSource="pkg/controller/backup_storage_location_controller.go:116"
+[pod/velero-64d88dfd9b-ztvmr/velero] 2023-02-16T10:59:08.052919642Z time="2023-02-16T10:59:08Z" level=info msg="BackupStorageLocations is valid, marking as available" backup-storage-location=velero/default controller=backup-storage-location logSource="pkg/controller/backup_storage_location_controller.go:116"
+
+------------------------------------------
+Kyverno - Errors or warnings
+------------------------------------------
+
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:29:44.262661725Z I0216 10:29:44.262468       1 log.go:146] webhooks/server "msg"="2023/02/16 10:29:44 http: TLS handshake error from 10.0.64.43:42246: EOF" 
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:30:46.076709132Z I0216 10:30:46.076488       1 log.go:146] webhooks/server "msg"="2023/02/16 10:30:46 http: TLS handshake error from 10.0.65.65:40050: EOF" 
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:34:03.542327028Z I0216 10:34:03.542174       1 request.go:682] Waited for 1.046622901s due to client-side throttling, not priority and fairness, request: GET:https://192.168.0.1:443/apis/storage.k8s.io/v1
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:34:04.542816874Z I0216 10:34:04.542398       1 request.go:682] Waited for 2.046560645s due to client-side throttling, not priority and fairness, request: GET:https://192.168.0.1:443/apis/monitoring.coreos.com/v1
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:34:05.592181205Z I0216 10:34:05.591920       1 request.go:682] Waited for 3.095780576s due to client-side throttling, not priority and fairness, request: GET:https://192.168.0.1:443/apis/image.toolkit.fluxcd.io/v1beta1
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:49:03.542621770Z I0216 10:49:03.542471       1 request.go:682] Waited for 1.0473872s due to client-side throttling, not priority and fairness, request: GET:https://192.168.0.1:443/apis/scheduling.k8s.io/v1
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:49:04.592915179Z I0216 10:49:04.592612       1 request.go:682] Waited for 2.097527008s due to client-side throttling, not priority and fairness, request: GET:https://192.168.0.1:443/apis/storage.k8s.io/v1beta1
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:49:05.642374885Z I0216 10:49:05.642177       1 request.go:682] Waited for 3.146980415s due to client-side throttling, not priority and fairness, request: GET:https://192.168.0.1:443/apis/kustomize.toolkit.fluxcd.io/v1beta1
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:50:43.140938307Z I0216 10:50:43.140785       1 log.go:146] webhooks/server "msg"="2023/02/16 10:50:43 http: TLS handshake error from 10.0.64.43:39440: EOF" 
+[pod/kyverno-9c494576b-5s94r/kyverno] 2023-02-16T10:54:25.464215900Z I0216 10:54:25.464008       1 log.go:146] webhooks/server "msg"="2023/02/16 10:54:25 http: TLS handshake error from 10.0.65.65:45394: EOF" 
+
+------------------------------------------
+Oauth-proxy - Rejections
+------------------------------------------
+
+
+------------------------------------------
+Oauth-proxy - Errors or warnings
+------------------------------------------
+
+
+---------------------------------------------------------------
+Application services
+---------------------------------------------------------------
+
+------------------------------------------
+Orchestrate API - *network exists* error
+------------------------------------------
+
+
+------------------------------------------
+Orchestrate API - Errors and warnings
+------------------------------------------
+
+[pod/orchestrate-api-588b76648-2zlkq/api] 2023-02-16T09:55:50.514014792Z {"@timestamp":"2023-02-16T09:55:50Z","log.level":"warning","message":"(router): missing in dynamic configuration","middleware":"base@logger-base"}
+[pod/orchestrate-api-588b76648-2zlkq/api] 2023-02-16T09:55:50.515496507Z {"@timestamp":"2023-02-16T09:55:50Z","log.level":"warning","message":"(router): missing in dynamic configuration","middleware":"base@logger-base"}
+[pod/orchestrate-api-588b76648-2zlkq/api] 2023-02-16T09:55:51.512737784Z {"@timestamp":"2023-02-16T09:55:51Z","log.level":"warning","message":"(router): missing in dynamic configuration","middleware":"base@logger-base"}
+[pod/orchestrate-api-588b76648-2zlkq/api] 2023-02-16T10:41:52.309662341Z {"@timestamp":"2023-02-16T10:41:52Z","log.level":"warning","message":"(router): missing in dynamic configuration","middleware":"base@logger-base"}
+
+------------------------------------------
+Orchestrate tx-listener - Errors and warnings
+------------------------------------------
+
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T09:55:55.426313786Z {"@timestamp":"2023-02-16T09:55:55Z","address":{"IP":"::","Port":8081,"Zone":""},"entrypoint":"app","log.level":"info","message":"(tcp): start serving tcp entrypoint"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T09:55:55.426337487Z {"@timestamp":"2023-02-16T09:55:55Z","address":{"IP":"::","Port":8082,"Zone":""},"entrypoint":"metrics","log.level":"info","message":"(tcp): start serving tcp entrypoint"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:41:55.426057125Z {"@timestamp":"2023-02-16T10:41:55Z","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session-manager): listener session started","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:41:55.457029873Z {"@timestamp":"2023-02-16T10:41:55Z","block_start":12223,"chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum): starting fetch block listener"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:41:55.474116576Z {"@timestamp":"2023-02-16T10:41:55Z","block_number":"12223","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum.hook): block processed","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:41:55.474154277Z {"@timestamp":"2023-02-16T10:41:55Z","block_number":12223,"chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"warning","message":"(tx-listener.session.ethereum): ignored set last block number","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:42:00.481421446Z {"@timestamp":"2023-02-16T10:42:00Z","block_number":"12224","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum.hook): block processed","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:42:05.473535199Z {"@timestamp":"2023-02-16T10:42:05Z","block_number":"12225","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum.hook): block processed","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:42:10.486852134Z {"@timestamp":"2023-02-16T10:42:10Z","block_number":"12226","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum.hook): block processed","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:42:15.471296537Z {"@timestamp":"2023-02-16T10:42:15Z","block_number":"12227","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum.hook): block processed","owner_id":"","tenant_id":"_"}
+[pod/orchestrate-tx-listener-699c4bd8d8-gkknc/tx-listener] 2023-02-16T10:42:20.472824323Z {"@timestamp":"2023-02-16T10:42:20Z","block_number":"12228","chain":"90f0c7c4-2889-46f8-ac9d-1cc04dcda4a8","log.level":"info","message":"(tx-listener.session.ethereum.hook): block processed","owner_id":"","tenant_id":"_"}
+
+------------------------------------------
+Orchestrate tx-sender - Errors and warnings
+------------------------------------------
+
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:55:56.677944039Z {"@timestamp":"2023-02-16T09:55:56Z","log.level":"info","message":"(application): started"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:55:56.682314184Z {"@timestamp":"2023-02-16T09:55:56Z","address":{"IP":"::","Port":8082,"Zone":""},"entrypoint":"metrics","log.level":"info","message":"(tcp): start serving tcp entrypoint"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:55:56.682347185Z {"@timestamp":"2023-02-16T09:55:56Z","address":{"IP":"::","Port":8081,"Zone":""},"entrypoint":"app","log.level":"info","message":"(tcp): start serving tcp entrypoint"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:55:59.116977668Z {"@timestamp":"2023-02-16T09:55:59Z","claims":null,"consumer":"c-0","kafka.generation_id":6,"kafka.member_id":"sarama-orchestrate-032f26e4-a810-4b8b-81a1-eaade6b25f4a","log.level":"info","message":"(service.kafka-consumer): ready to consume messages"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:56:02.118392540Z {"@timestamp":"2023-02-16T09:56:02Z","consumer":"c-0","log.level":"info","message":"(service.kafka-consumer): all claims consumed"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:56:02.118448340Z {"@timestamp":"2023-02-16T09:56:02Z","consumer":"c-0","error":"kafka rebalance was triggered","log.level":"warning","message":"(application): consuming session exited, retrying in [500ms]"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:56:09.122398689Z {"@timestamp":"2023-02-16T09:56:09Z","claims":null,"consumer":"c-0","kafka.generation_id":7,"kafka.member_id":"sarama-orchestrate-032f26e4-a810-4b8b-81a1-eaade6b25f4a","log.level":"info","message":"(service.kafka-consumer): ready to consume messages"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:56:21.124329147Z {"@timestamp":"2023-02-16T09:56:21Z","consumer":"c-0","log.level":"info","message":"(service.kafka-consumer): all claims consumed"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:56:21.124452848Z {"@timestamp":"2023-02-16T09:56:21Z","consumer":"c-0","error":"kafka rebalance was triggered","log.level":"warning","message":"(application): consuming session exited, retrying in [500ms]"}
+[pod/orchestrate-tx-sender-6c8dd888b-drz8r/tx-sender] 2023-02-16T09:56:21.719775083Z {"@timestamp":"2023-02-16T09:56:21Z","claims":null,"consumer":"c-0","kafka.generation_id":8,"kafka.member_id":"sarama-orchestrate-032f26e4-a810-4b8b-81a1-eaade6b25f4a","log.level":"info","message":"(service.kafka-consumer): ready to consume messages"}
+
+------------------------------------------
+Orchestrate quorum-key-manager - Errors and warnings
+------------------------------------------
+
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.405461167Z 2023-02-16T09:55:58.404Z [INFO]  template.server: starting template server
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.405465567Z 2023-02-16T09:55:58.404Z [INFO]  template.server: no templates found
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.405469967Z 2023-02-16T09:55:58.404Z [INFO]  sink.server: starting sink server
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.405474167Z 2023-02-16T09:55:58.404Z [INFO]  auth.handler: starting auth handler
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.405478367Z 2023-02-16T09:55:58.404Z [INFO]  auth.handler: authenticating
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505100189Z 2023-02-16T09:55:58.504Z [ERROR] auth.handler: error authenticating:
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505128289Z   error=
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505135089Z   | Error making API request.
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505139789Z   | 
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505145089Z   | URL: PUT http://vault:8200/v1/auth/kubernetes/login
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505150589Z   | Code: 403. Errors:
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505155090Z   | 
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505159690Z   | * permission denied
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:58.505164390Z    backoff=1s
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.505611656Z 2023-02-16T09:55:59.505Z [INFO]  auth.handler: authenticating
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599663521Z 2023-02-16T09:55:59.599Z [ERROR] auth.handler: error authenticating:
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599690921Z   error=
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599697621Z   | Error making API request.
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599702621Z   | 
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599708121Z   | URL: PUT http://vault:8200/v1/auth/kubernetes/login
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599713721Z   | Code: 403. Errors:
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599718522Z   | 
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599723322Z   | * permission denied
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:55:59.599728222Z    backoff=1.77s
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:56:01.373638343Z 2023-02-16T09:56:01.373Z [INFO]  auth.handler: authenticating
+[pod/quorum-key-manager-5897f8d967-8j5b5/vault-agent-quorum] 2023-02-16T09:56:01.465465618Z 2023-02-16T09:56:01.465Z [INFO]  auth.handler: authentication successful, sending token to sinks
+
+------------------------------------------
+Orchestrate vault-configurer - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Besu explorer - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Besu explorer-api - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Besu explorer-ingestion - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Besu explorer-mongodb - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Carbon-place carbon-external - Errors and warnings
+------------------------------------------
+
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.148634840Z {"log":{"level":"info","logger":"pino"},"@timestamp":"2023-02-16T10:40:18.148Z","module":"nestjs","context":"InstanceLoader","ecs":{"version":"1.5.0"},"message":"M2mTokenModule dependencies initialized"}
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.148789041Z {"log":{"level":"info","logger":"pino"},"@timestamp":"2023-02-16T10:40:18.148Z","module":"nestjs","context":"InstanceLoader","ecs":{"version":"1.5.0"},"message":"AppModule dependencies initialized"}
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.150246745Z {"log":{"level":"info","logger":"pino"},"@timestamp":"2023-02-16T10:40:18.150Z","module":"nestjs","context":"InstanceLoader","ecs":{"version":"1.5.0"},"message":"ScheduleModule dependencies initialized"}
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.154212558Z {"log":{"level":"info","logger":"pino"},"@timestamp":"2023-02-16T10:40:18.154Z","module":"nestjs","context":"InstanceLoader","ecs":{"version":"1.5.0"},"message":"CixApiModule dependencies initialized"}
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.160327578Z 
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.160392778Z Warning: TerminusModule.forRoot and TerminusModule.forRootAsync has been deprecated.
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.160418679Z In order to migrate, checkout the Migration Guide on https://docs.nestjs.com/migration-guide#terminus
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.160425079Z 
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.160816680Z 
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.161874983Z {"log":{"level":"info","logger":"pino"},"@timestamp":"2023-02-16T10:40:18.161Z","module":"nestjs","context":"InstanceLoader","ecs":{"version":"1.5.0"},"message":"AssetsModule dependencies initialized"}
+[pod/carbon-external-8c695fb9b-8f5dg/carbon-external] 2023-02-16T10:40:18.165530095Z {"log":{"level":"info","logger":"pino"},"@timestamp":"2023-02-16T10:40:18.165Z","module":"nestjs","context":"InstanceLoader","ecs":{"version":"1.5.0"},"message":"RatesModule dependencies initialized"}
+
+------------------------------------------
+Carbon-place carbon-front - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Codefi-assets admin-api - Errors and warnings
+------------------------------------------
+
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:23.379666275Z     remaining: 37975
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:23.379671775Z     ecs: {
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:23.379677375Z       "version": "1.5.0"
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:23.379683175Z     }
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:23.379688675Z     message: "Checking cached M2M token expiry"
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:27.003450200Z {"level":"ERROR","timestamp":"2023-02-16T10:42:27.002Z","logger":"kafkajs","message":"[Connection] Response Heartbeat(key: 12, version: 3)","broker":"kafka-1.kafka-headless.kafka.svc.cluster.local:9092","clientId":"admin-api","error":"The group is rebalancing, so a rejoin is needed","correlationId":13,"size":10}
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:27.004139002Z {"level":"WARN","timestamp":"2023-02-16T10:42:27.003Z","logger":"kafkajs","message":"[Runner] The group is rebalancing, re-joining","groupId":"admin-api--userCreate","memberId":"admin-api-eac9ff39-3e7c-4b61-81cc-ff245ff93793","error":"The group is rebalancing, so a rejoin is needed","retryCount":0,"retryTime":331}
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:27.014897438Z {"level":"INFO","timestamp":"2023-02-16T10:42:27.014Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"admin-api--userCreate","memberId":"admin-api-eac9ff39-3e7c-4b61-81cc-ff245ff93793","leaderId":"admin-api-eac9ff39-3e7c-4b61-81cc-ff245ff93793","isLeader":true,"memberAssignment":{"development-user_create":[0]},"groupProtocol":"RoundRobinAssigner","duration":11}
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:27.766036751Z {"level":"ERROR","timestamp":"2023-02-16T10:42:27.765Z","logger":"kafkajs","message":"[Connection] Response Heartbeat(key: 12, version: 3)","broker":"kafka-2.kafka-headless.kafka.svc.cluster.local:9092","clientId":"admin-api","error":"The group is rebalancing, so a rejoin is needed","correlationId":12,"size":10}
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:27.766444253Z {"level":"WARN","timestamp":"2023-02-16T10:42:27.765Z","logger":"kafkajs","message":"[Runner] The group is rebalancing, re-joining","groupId":"admin-api--clientCreate","memberId":"admin-api-b3d67c47-4a4f-440b-b02d-d6f8a4947320","error":"The group is rebalancing, so a rejoin is needed","retryCount":0,"retryTime":317}
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:27.775566283Z {"level":"INFO","timestamp":"2023-02-16T10:42:27.775Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"admin-api--clientCreate","memberId":"admin-api-b3d67c47-4a4f-440b-b02d-d6f8a4947320","leaderId":"admin-api-b3d67c47-4a4f-440b-b02d-d6f8a4947320","isLeader":true,"memberAssignment":{"development-client_create":[0]},"groupProtocol":"RoundRobinAssigner","duration":10}
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:47.451754795Z     log: {
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:47.451810495Z       "level": "info",
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:47.451821795Z       "logger": "pino"
+[pod/admin-api-5c57787c8c-d75v2/admin-api] 2023-02-16T10:42:47.451846995Z     }
+
+------------------------------------------
+Codefi-assets assets-api - Errors and warnings
+------------------------------------------
+
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.930539101Z [32m[Nest] 1  - [39m02/16/2023, 10:41:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/v2/hooks, POST} route[39m[38;5;3m +0ms[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.930557001Z [32m[Nest] 1  - [39m02/16/2023, 10:41:37 AM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mEventController {/v2/essentials/digital/asset/event}:[39m[38;5;3m +1ms[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.931241903Z [32m[Nest] 1  - [39m02/16/2023, 10:41:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/v2/essentials/digital/asset/event, GET} route[39m[38;5;3m +0ms[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.931987605Z [32m[Nest] 1  - [39m02/16/2023, 10:41:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/v2/essentials/digital/asset/event/:eventIndex, GET} route[39m[38;5;3m +1ms[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.934848614Z [32m[Nest] 1  - [39m02/16/2023, 10:41:37 AM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/v2/essentials/digital/asset/event/:eventIndex, DELETE} route[39m[38;5;3m +1ms[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.987985082Z (node:1) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:37.988042282Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:38.800617446Z     log: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:38.800650646Z       "level": "info",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:38.800657946Z       "logger": "pino"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:38.800663346Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:41:38.800668746Z     @timestamp: "2023-02-16T10:41:36.483Z"
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.992940832Z     ecs: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.992946532Z       "version": "1.5.0"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.992951832Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.992958232Z     message: "Retry failure in call to ${ADMIN_HOST}/client?skip=${skip}&limit=${limit} --> sleep for 1500ms"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993597635Z     log: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993637635Z       "level": "error",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993646035Z       "logger": "pino"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993652235Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993658235Z     @timestamp: "2023-02-16T10:42:00.598Z"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993663835Z     module: "nestjs"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993669235Z     ecs: {
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993691235Z     err: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993696735Z       "type": "HttpException",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993703235Z       "message": "createTenant --> listAllClientApplicationInAuth0 --> [Admin-Api] \"connect ECONNREFUSED 192.168.50.158:3000\"",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993708935Z       "stack":
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993714435Z           HttpException: createTenant --> listAllClientApplicationInAuth0 --> [Admin-Api] "connect ECONNREFUSED 192.168.50.158:3000"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993720135Z               at ErrorService.logAndThrowFunctionError (/usr/src/app/assets/services/assets-api/dist/utils/errorService.js:45:15)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993725735Z               at TenantService.createTenant (/usr/src/app/assets/services/assets-api/dist/modules/v2Utils/utils.service/tenant.js:258:36)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993752735Z               at async TenantService.onModuleInit (/usr/src/app/assets/services/assets-api/dist/modules/v2Utils/utils.service/tenant.js:73:17)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993759535Z               at async Promise.all (index 0)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993767935Z               at async callModuleInitHook (/usr/src/app/node_modules/@nestjs/core/hooks/on-module-init.hook.js:43:5)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:42:00.993773535Z               at async NestApplication.callInitHook (/usr/src/app/node_modules/@nestjs/core/nest-application-context.js:178:13)
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:30.863028453Z         "etag": "W/\"4a-bKFr5EBU547PhQq7CR0VfTFQoxc\""
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:30.863033653Z       }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:30.863038953Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:30.863048353Z     responseTime: 139
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.069930108Z Something went wrong while creating a user {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.069992508Z   error: HttpException: createLinkedUser --> user with email stuart.anderson@blakyaks.com already exists but is not a BROKER (ISSUER instead)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.070005008Z       at ErrorService.logAndThrowFunctionError (/usr/src/app/assets/services/assets-api/dist/utils/errorService.js:45:15)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.070012508Z       at UserCreationService.createLinkedUser (/usr/src/app/assets/services/assets-api/dist/modules/v2User/user.service/createUser.js:228:36)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.070020909Z       at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.070028009Z       at async UserController.createUser (/usr/src/app/assets/services/assets-api/dist/modules/v2User/user.controller.js:189:28) {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.070035409Z     response: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.070042309Z       message: 'createLinkedUser --> user with email stuart.anderson@blakyaks.com already exists but is not a BROKER (ISSUER instead)',
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830097495Z     ecs: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830102695Z       "version": "1.5.0"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830107895Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830113295Z     message: "Checking cached M2M token expiry"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830118395Z     log: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830123595Z       "level": "error",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830128795Z       "logger": "pino"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830133995Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830139095Z     @timestamp: "2023-02-16T10:46:36.071Z"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830161495Z     module: "AppToHttpFilter"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830167095Z     ecs: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830172296Z       "version": "1.5.0"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830177496Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.830183396Z     message: "errorCode: undefined, errorName: undefined, message: Something went wrong while creating a user: user with email stuart.anderson@blakyaks.com already exists but is not a BROKER (ISSUER instead)}"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.917879756Z [34mDEBUG[39m [16/02/2023, 10:46:35 AM UTC] (1 on assets-api-f8d8b7c59-qrbb4): [36mAUTH3 --> User auth0|63edfa8004aad4a34af85c5b authenticated with authToken (tenant: GsSLdTRTHcu0jAptEkYW4NoosifVOmWr, entity: a98707bf-0116-4949-ae8d-08c95ff9f1a5)[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.917943257Z     req: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.917952057Z       "id": 22,
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.917957857Z       "method": "POST",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.917964157Z       "url": "/v2/essentials/user?userId=a98707bf-0116-4949-ae8d-08c95ff9f1a5&callerId=a98707bf-0116-4949-ae8d-08c95ff9f1a5",
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.918212158Z         "tenantId": "GsSLdTRTHcu0jAptEkYW4NoosifVOmWr"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.918217458Z       },
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.918222958Z       "remoteAddress": "::ffff:10.0.66.158",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.918228458Z       "remotePort": 46084
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.918233858Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.919996267Z [34mDEBUG[39m [16/02/2023, 10:46:36 AM UTC] (1 on assets-api-f8d8b7c59-qrbb4): [36m[Exception] -  Method:POST | Path:/v2/essentials/user?userId=a98707bf-0116-4949-ae8d-08c95ff9f1a5&callerId=a98707bf-0116-4949-ae8d-08c95ff9f1a5 | TransactionId: undefined | TraceId: undefined | TenantId: GsSLdTRTHcu0jAptEkYW4NoosifVOmWr | EntityId: a98707bf-0116-4949-ae8d-08c95ff9f1a5 | Payload: {"email":"stuart.anderson@blakyaks.com","firstName":"Stuart","lastName":"Anderson","userType":"BROKER","userNature":"LEGAL","data":{"userType":"BROKER","clientName":"yakbank","onboardedBy":"a98707bf-0116-4949-ae8d-08c95ff9f1a5","permissions":[],"actions":[]},"idempotencyKey":"YJMeY1p1-8plIUaOR-OQD4YZPJ-JauZp7qc"} | Error: {"response":{"message":"Something went wrong while creating a user: user with email stuart.anderson@blakyaks.com already exists but is not a BROKER (ISSUER instead)","status":500},"status":500,"message":"Something went wrong while creating a user: user with email stuart.anderson@blakyaks.com already exists but is not a BROKER (ISSUER instead)","name":"HttpException"}[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920040868Z     req: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920050168Z       "id": 22,
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920056268Z       "method": "POST",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920062568Z       "url": "/v2/essentials/user?userId=a98707bf-0116-4949-ae8d-08c95ff9f1a5&callerId=a98707bf-0116-4949-ae8d-08c95ff9f1a5",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920068268Z       "query": {
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920441470Z         "tenantId": "GsSLdTRTHcu0jAptEkYW4NoosifVOmWr"
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920447870Z       },
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920454270Z       "remoteAddress": "::ffff:10.0.66.158",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920461470Z       "remotePort": 46084
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920468170Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920474970Z [32mINFO[39m [16/02/2023, 10:46:36 AM UTC] (1 on assets-api-f8d8b7c59-qrbb4): [36mrequest errored[39m
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920481770Z     req: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920488370Z       "id": 22,
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920494770Z       "method": "POST",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920501270Z       "url": "/v2/essentials/user?userId=a98707bf-0116-4949-ae8d-08c95ff9f1a5&callerId=a98707bf-0116-4949-ae8d-08c95ff9f1a5",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920507570Z       "query": {
+--
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920974172Z         "etag": "W/\"149-JppCrteVnyiZO5QQFHybJ9GaVIU\""
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920980872Z       }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920987272Z     }
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920993673Z     responseTime: 158
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.920999973Z     err: {
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921006573Z       "type": "Error",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921012973Z       "message": "failed with status code 500",
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921019573Z       "stack":
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921026273Z           Error: failed with status code 500
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921032873Z               at ServerResponse.onResFinished (/usr/src/app/platform/packages/observability/node_modules/pino-http/logger.js:113:40)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921039373Z               at ServerResponse.emit (node:events:539:35)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921045773Z               at onFinish (node:_http_outgoing:898:10)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921052273Z               at callback (node:internal/streams/writable:553:21)
+[pod/assets-api-f8d8b7c59-qrbb4/assets-api] 2023-02-16T10:46:36.921058673Z               at afterWrite (node:internal/streams/writable:498:5)
+
+------------------------------------------
+Codefi-assets assets-front - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Codefi-assets entity-api - Errors and warnings
+------------------------------------------
+
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:36.458091355Z     }
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:36.458096755Z     message: "EntityModule dependencies initialized"
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:36.984211815Z [!!] Events registered
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:36.984260115Z [+] Registering consumers...
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.022874637Z {"level":"INFO","timestamp":"2023-02-16T10:41:37.022Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"entity-api--UserCreatedEventConsumer"}
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.041407495Z (node:1) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.041443996Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.071286690Z {"level":"INFO","timestamp":"2023-02-16T10:41:37.068Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"entity-api--UserCreatedEventConsumer","memberId":"entity-api-31554258-2db1-4d09-9ba3-97216ce0213b","leaderId":"entity-api-31554258-2db1-4d09-9ba3-97216ce0213b","isLeader":true,"memberAssignment":{"development-user_created":[0]},"groupProtocol":"RoundRobinAssigner","duration":45}
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.098869577Z {"level":"INFO","timestamp":"2023-02-16T10:41:37.094Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"entity-api--ClientCreatedEventConsumer"}
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.114911827Z {"level":"INFO","timestamp":"2023-02-16T10:41:37.114Z","logger":"kafkajs","message":"[ConsumerGroup] Consumer has joined the group","groupId":"entity-api--ClientCreatedEventConsumer","memberId":"entity-api-96bf8b86-40af-474b-9f24-59a33ae02e55","leaderId":"entity-api-96bf8b86-40af-474b-9f24-59a33ae02e55","isLeader":true,"memberAssignment":{"development-client_created":[0]},"groupProtocol":"RoundRobinAssigner","duration":20}
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.126294663Z {"level":"INFO","timestamp":"2023-02-16T10:41:37.125Z","logger":"kafkajs","message":"[Consumer] Starting","groupId":"entity-api--TenantCreateCommandConsumer"}
+[pod/entity-api-7f79cfb47f-qphwv/entity-api] 2023-02-16T10:41:37.498774739Z     log: {
+
+------------------------------------------
+Codefi-assets external-identity-api - Errors and warnings
+------------------------------------------
+
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115125874Z                   "IDENTITY"
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115130374Z                 ]
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115134874Z               }
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115139374Z             },
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115143774Z             {
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115148174Z               "name": "errors",
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115152574Z               "type": {
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115156874Z                 "type": "map",
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115161274Z                 "values": {
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115165874Z                   "type": "array",
+[pod/external-identity-api-f569ddb4d-xkv6w/external-identity-api] 2023-02-16T10:41:48.115170774Z                   "items": "string"
+
+------------------------------------------
+Codefi-assets i18n-api - Errors and warnings
+------------------------------------------
+
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:34.990309094Z     context: "KeyService"
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:34.990313894Z     ecs: {
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:34.990318094Z       "version": "1.5.0"
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:34.990322394Z     }
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:34.990326894Z     message: "ja loaded 987 keys"
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:50.431712618Z (node:1) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+[pod/i18n-api-7c6747b686-l5zp5/i18n-api] 2023-02-16T10:41:50.431763319Z (Use `node --trace-deprecation ...` to show where the warning was created)
+
+------------------------------------------
+Codefi-assets kyc-api - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Codefi-assets mailing-api - Errors and warnings
+------------------------------------------
+
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:41:47.382969997Z     context: "NestApplication"
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:41:47.382974797Z     ecs: {
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:41:47.383074797Z       "version": "1.5.0"
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:41:47.383086798Z     }
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:41:47.383091998Z     message: "Nest application successfully started"
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:42:03.388763712Z (node:1) [DEP0152] DeprecationWarning: Custom PerformanceEntry accessors are deprecated. Please use the detail property.
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:42:03.388825612Z (Use `node --trace-deprecation ...` to show where the warning was created)
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:46:58.702909532Z [32mINFO[39m [16/02/2023, 10:46:57 AM UTC] (1 on mailing-api-6c6d674bcf-fksp2):
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:46:58.702969633Z     req: {
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:46:58.702978933Z       "id": 1,
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:46:58.702985333Z       "method": "POST",
+[pod/mailing-api-6c6d674bcf-fksp2/mailing-api] 2023-02-16T10:46:58.702991033Z       "url": "/send",
+
+------------------------------------------
+Codefi-assets metadata-api - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Codefi-assets smart-contract-api - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Codefi-assets workflow-api - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+Kafka confluent-stack-cp-schema-registry - Errors and warnings
+------------------------------------------
+
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682503076Z [2023-02-16 09:15:17,679] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682580776Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.userCreateCommand.userCreate' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682595876Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682603576Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682611476Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682633377Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682640877Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682648577Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682684577Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682691377Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682697977Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682704777Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682712277Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682718977Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682725577Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682732277Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682738777Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682745277Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682751877Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682758377Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682765077Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682771677Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:17.682778377Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.111320697Z [2023-02-16 09:15:19,110] INFO Wait to catch up until the offset at 2 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.111379497Z [2023-02-16 09:15:19,111] INFO Reached offset at 2 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.205276701Z [2023-02-16 09:15:19,205] INFO Wait to catch up until the offset at 3 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.271665716Z [2023-02-16 09:15:19,271] INFO Reached offset at 3 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.368120828Z [2023-02-16 09:15:19,283] INFO 10.0.67.92 - - [16/Feb/2023:09:15:18 +0000] "POST /subjects/net.consensys.codefi.userCreateCommand.userCreate/versions HTTP/1.1" 200 8  703 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396630120Z [2023-02-16 09:15:19,393] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396685120Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.user.userCreated' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396693820Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396699920Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396706620Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396712620Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396718620Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396725220Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396756120Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396761721Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396776221Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396782321Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396788521Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396794121Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396799621Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396805521Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396811221Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396845721Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396852021Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396857721Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396863421Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396872821Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.396879021Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.592321353Z [2023-02-16 09:15:19,592] INFO Wait to catch up until the offset at 4 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.592430753Z [2023-02-16 09:15:19,592] INFO Reached offset at 4 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.667629697Z [2023-02-16 09:15:19,667] INFO Wait to catch up until the offset at 5 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.667741297Z [2023-02-16 09:15:19,667] INFO Reached offset at 5 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.669649603Z [2023-02-16 09:15:19,669] INFO 10.0.67.92 - - [16/Feb/2023:09:15:19 +0000] "POST /subjects/net.consensys.codefi.user.userCreated/versions HTTP/1.1" 200 8  104 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687318260Z [2023-02-16 09:15:19,685] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687374860Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.user.userUpdated' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687384060Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687390060Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687409761Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687416861Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687422461Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687428661Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687464061Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687469561Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687475361Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687480661Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687486361Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687491961Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687497461Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687502761Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687507961Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687513361Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687518761Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687523961Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687529061Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687534361Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.687539661Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.972272682Z [2023-02-16 09:15:19,972] INFO Wait to catch up until the offset at 6 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.979503805Z [2023-02-16 09:15:19,979] INFO Reached offset at 6 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:19.999150469Z [2023-02-16 09:15:19,998] INFO Wait to catch up until the offset at 7 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.000357073Z [2023-02-16 09:15:20,000] INFO Reached offset at 7 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.075729216Z [2023-02-16 09:15:20,075] INFO 10.0.67.92 - - [16/Feb/2023:09:15:19 +0000] "POST /subjects/net.consensys.codefi.user.userUpdated/versions HTTP/1.1" 200 8  200 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087269354Z [2023-02-16 09:15:20,079] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087295454Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.client.clientCreated' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087303554Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087309454Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087315854Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087321754Z 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087331254Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087337454Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087368054Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087373854Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087379654Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087397854Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087420054Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087425454Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087430954Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087436354Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087441654Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087447054Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087452054Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087457254Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087462754Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087467854Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:15:20.087472954Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:18.578609076Z [2023-02-16 09:40:18,578] INFO Registering new schema: subject net.consensys.codefi.client.clientCreated, version null, id null, type null (io.confluent.kafka.schemaregistry.rest.resources.SubjectVersionsResource)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:18.667424050Z [2023-02-16 09:40:18,667] INFO 10.0.65.144 - - [16/Feb/2023:09:40:18 +0000] "POST /subjects/net.consensys.codefi.client.clientCreated/versions HTTP/1.1" 200 8  91 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.501906526Z [2023-02-16 09:40:25,501] INFO 10.0.67.55 - - [16/Feb/2023:09:40:25 +0000] "GET /config/net.consensys.codefi.userCreateCommand.userCreate HTTP/1.1" 200 33  3 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.522488365Z [2023-02-16 09:40:25,522] INFO Registering new schema: subject net.consensys.codefi.userCreateCommand.userCreate, version null, id null, type null (io.confluent.kafka.schemaregistry.rest.resources.SubjectVersionsResource)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.525244771Z [2023-02-16 09:40:25,525] INFO 10.0.67.55 - - [16/Feb/2023:09:40:25 +0000] "POST /subjects/net.consensys.codefi.userCreateCommand.userCreate/versions HTTP/1.1" 200 8  7 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568398355Z [2023-02-16 09:40:25,567] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568453155Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.convergence.tenant.tenantOperation' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568464155Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568470355Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568477755Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568483955Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568490855Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568498355Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568530855Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568536755Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568542855Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568549655Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568555255Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568560755Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568566555Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568572055Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568578255Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568584055Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568589555Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568595255Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568600655Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568620555Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.568626455Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.785347176Z [2023-02-16 09:40:25,785] INFO Wait to catch up until the offset at 10 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.785394176Z [2023-02-16 09:40:25,785] INFO Reached offset at 10 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.865094630Z [2023-02-16 09:40:25,864] INFO Wait to catch up until the offset at 11 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.879527458Z [2023-02-16 09:40:25,879] INFO Reached offset at 11 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.881284262Z [2023-02-16 09:40:25,881] INFO 10.0.67.55 - - [16/Feb/2023:09:40:25 +0000] "POST /subjects/net.consensys.codefi.convergence.tenant.tenantOperation/versions HTTP/1.1" 200 8  100 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897357293Z [2023-02-16 09:40:25,896] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897398393Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.convergence.entity.entityOperation' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897408493Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897414593Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897421093Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897426693Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897447093Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897456293Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897479593Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897485393Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897490693Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897497093Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897502493Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897507993Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897513293Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897518693Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897523993Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897529493Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897534693Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897540093Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897545493Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897550593Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:25.897555793Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.082001751Z [2023-02-16 09:40:26,081] INFO Wait to catch up until the offset at 12 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.082079052Z [2023-02-16 09:40:26,081] INFO Reached offset at 12 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.166701816Z [2023-02-16 09:40:26,166] INFO Wait to catch up until the offset at 13 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.166746816Z [2023-02-16 09:40:26,166] INFO Reached offset at 13 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.170513223Z [2023-02-16 09:40:26,170] INFO 10.0.67.55 - - [16/Feb/2023:09:40:26 +0000] "POST /subjects/net.consensys.codefi.convergence.entity.entityOperation/versions HTTP/1.1" 200 8  92 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267522712Z [2023-02-16 09:40:26,266] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267559612Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.convergence.wallet.walletOperation' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267569112Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267575212Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267581212Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267586812Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267595112Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267602012Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267625012Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267630312Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267635712Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267641212Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267646512Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267652112Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267657212Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267662312Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267667612Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267672912Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267678412Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267683612Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267688712Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267708412Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.267714412Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.465374896Z [2023-02-16 09:40:26,465] INFO Wait to catch up until the offset at 14 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.465439696Z [2023-02-16 09:40:26,465] INFO Reached offset at 14 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.473113011Z [2023-02-16 09:40:26,472] INFO Wait to catch up until the offset at 15 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.474309913Z [2023-02-16 09:40:26,474] INFO Reached offset at 15 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.565876191Z [2023-02-16 09:40:26,565] INFO 10.0.67.55 - - [16/Feb/2023:09:40:26 +0000] "POST /subjects/net.consensys.codefi.convergence.wallet.walletOperation/versions HTTP/1.1" 200 8  181 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580233819Z [2023-02-16 09:40:26,579] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580273219Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.convergence.entity.entityDeleteCommand' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580281519Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580287219Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580293119Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580299019Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580305119Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580325519Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580347919Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580353019Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580358019Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580363719Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580368619Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580373719Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580378719Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580383619Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580388519Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580393819Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580399219Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580404519Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580410219Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580415719Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.580420919Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.768276584Z [2023-02-16 09:40:26,768] INFO Wait to catch up until the offset at 16 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.768357084Z [2023-02-16 09:40:26,768] INFO Reached offset at 16 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.775465097Z [2023-02-16 09:40:26,775] INFO Wait to catch up until the offset at 17 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.776169199Z [2023-02-16 09:40:26,776] INFO Reached offset at 17 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.777595902Z [2023-02-16 09:40:26,777] INFO 10.0.67.55 - - [16/Feb/2023:09:40:26 +0000] "POST /subjects/net.consensys.codefi.convergence.entity.entityDeleteCommand/versions HTTP/1.1" 200 8  12 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877754996Z [2023-02-16 09:40:26,867] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877812396Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.convergence.wallet.walletDeleteCommand' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877822396Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877828596Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877834596Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877840896Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877847196Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877853996Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877878096Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877883296Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877888696Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877894996Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877900496Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877905896Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877911196Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877938196Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877944296Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877949896Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877955196Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877960396Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877965796Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877970896Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:26.877975996Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.070470670Z [2023-02-16 09:40:27,070] INFO Wait to catch up until the offset at 18 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.070547670Z [2023-02-16 09:40:27,070] INFO Reached offset at 18 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.165305954Z [2023-02-16 09:40:27,165] INFO Wait to catch up until the offset at 19 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.166085556Z [2023-02-16 09:40:27,165] INFO Reached offset at 19 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.168249760Z [2023-02-16 09:40:27,168] INFO 10.0.67.55 - - [16/Feb/2023:09:40:27 +0000] "POST /subjects/net.consensys.codefi.convergence.wallet.walletDeleteCommand/versions HTTP/1.1" 200 8  102 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179221881Z [2023-02-16 09:40:27,178] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179255381Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.clientCreateCommand.clientCreate' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179275781Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179281681Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179287281Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179292181Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179297881Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179303581Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179324181Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179329981Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179335281Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179340781Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179345981Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179350981Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179355581Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179360281Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179364781Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179369381Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179373981Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179378681Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179383681Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179388781Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.179393381Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.180620184Z [2023-02-16 09:40:27,180] INFO 10.0.67.55 - - [16/Feb/2023:09:40:27 +0000] "GET /config/net.consensys.codefi.clientCreateCommand.clientCreate HTTP/1.1" 404 5980  4 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.194306210Z [2023-02-16 09:40:27,194] INFO Wait to catch up until the offset at 19 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.194365311Z [2023-02-16 09:40:27,194] INFO Reached offset at 19 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.199291620Z [2023-02-16 09:40:27,199] INFO Wait to catch up until the offset at 20 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.265857449Z [2023-02-16 09:40:27,265] INFO Reached offset at 20 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267737853Z [2023-02-16 09:40:27,267] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267786053Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.user.userPersonalInfoUpdated' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267795153Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267800753Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267806653Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267812453Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267818053Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267824053Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267846453Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267851553Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267856553Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267862153Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267867153Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267872053Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267876853Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267881753Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267886653Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267891953Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267896853Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267901753Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267906953Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267912053Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.267929653Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.469541545Z [2023-02-16 09:40:27,469] INFO Wait to catch up until the offset at 22 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.469573645Z [2023-02-16 09:40:27,469] INFO Reached offset at 22 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.474754655Z [2023-02-16 09:40:27,474] INFO Wait to catch up until the offset at 23 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.476712759Z [2023-02-16 09:40:27,476] INFO Reached offset at 23 (io.confluent.kafka.schemaregistry.storage.KafkaStore)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.478575562Z [2023-02-16 09:40:27,478] INFO 10.0.65.134 - - [16/Feb/2023:09:40:27 +0000] "POST /subjects/net.consensys.codefi.user.userPersonalInfoUpdated/versions HTTP/1.1" 200 9  13 (io.confluent.rest-utils.requests)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503072110Z [2023-02-16 09:40:27,502] ERROR Request Failed with exception  (io.confluent.rest.exceptions.DebuggableExceptionMapper)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503119810Z io.confluent.rest.exceptions.RestNotFoundException: Subject 'net.consensys.codefi.kyc.externalKycResult' not found.
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503129110Z 	at io.confluent.kafka.schemaregistry.rest.exceptions.Errors.subjectNotFoundException(Errors.java:69)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503135610Z 	at io.confluent.kafka.schemaregistry.rest.resources.ConfigResource.getSubjectLevelConfig(ConfigResource.java:121)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503142210Z 	at jdk.internal.reflect.GeneratedMethodAccessor2.invoke(Unknown Source)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503148110Z 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503154410Z 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503160910Z 	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+--
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503222710Z 	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503228410Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:469)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503234110Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:391)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503240610Z 	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:80)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503246110Z 	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:253)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503251710Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503257410Z 	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503263010Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503268610Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503274210Z 	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503279710Z 	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503285110Z 	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:232)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503290910Z 	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503296510Z 	at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:394)
+[pod/confluent-stack-cp-schema-registry-7466d7485c-26xmn/cp-schema-registry-server] 2023-02-16T09:40:27.503302110Z 	at org.glassfish.jersey.servlet.ServletContainer.serviceImpl(ServletContainer.java:386)
+
+------------------------------------------
+Kafka kafka-ui - Errors and warnings
+------------------------------------------
+
+
+------------------------------------------
+pgadmin - Errors and warnings
+------------------------------------------
+
+
+---------------------------------------------------------------
+All resources
+---------------------------------------------------------------
+
+------------------------------------------
+Check all pods statuses
+------------------------------------------
+
+STATUS 	cnt
+Running	220
+
+------------------------------------------
+Check all pods restarts
+------------------------------------------
+
+NAMESPACE          	NAME                                           	READY	STATUS 	RESTARTS     	AGE
+calico-system      	calico-node-9vqjp                              	1/1  	Running	1 (14h ago)  	16h
+kube-system        	aks-secrets-store-csi-driver-fqft2             	3/3  	Running	3 (14h ago)  	16h
+kube-system        	aks-secrets-store-provider-azure-h7h2v         	1/1  	Running	1 (14h ago)  	16h
+kube-system        	ama-logs-dbzz5                                 	2/2  	Running	2 (14h ago)  	16h
+kube-system        	azure-ip-masq-agent-ctf9s                      	1/1  	Running	1 (14h ago)  	16h
+kube-system        	cloud-node-manager-8lzs7                       	1/1  	Running	1 (14h ago)  	16h
+kube-system        	csi-azuredisk-node-msv5b                       	3/3  	Running	3 (14h ago)  	16h
+kube-system        	csi-azurefile-node-lgzrp                       	3/3  	Running	3 (14h ago)  	16h
+kube-system        	kube-proxy-vm6ll                               	1/1  	Running	1 (14h ago)  	16h
+kube-system        	microsoft-defender-collector-ds-48xdc          	2/2  	Running	2 (14h ago)  	16h
+kube-system        	microsoft-defender-publisher-ds-jxpwn          	1/1  	Running	1 (14h ago)  	16h
+kured-system       	kured-ttwqc                                    	1/1  	Running	1 (14h ago)  	16h
+pod-identity-system	aad-pod-identity-mic-574ccd7c8f-p2n4b          	1/1  	Running	1 (3h59m ago)	18h
+pod-identity-system	aad-pod-identity-nmi-qz7pb                     	1/1  	Running	2 (14h ago)  	16h
+pod-identity-system	aad-pod-identity-nmi-vrcdb                     	1/1  	Running	1 (17h ago)  	17h
+prometheus         	alertmanager-prometheus-stack-alertmanager-0   	2/2  	Running	1 (18h ago)  	18h
+prometheus         	loki-stack-promtail-59dqq                      	1/1  	Running	1 (14h ago)  	16h
+prometheus         	prometheus-stack-prometheus-node-exporter-8zzm5	1/1  	Running	1 (14h ago)  	16h
+tigera-operator    	tigera-operator-665bcd8669-tjnvg               	1/1  	Running	2 (12h ago)  	18h
+vault-system       	vault-operator-7c9559dcc8-69bpc                	1/1  	Running	1 (16h ago)  	18h
+velero             	restic-zvg5s                                   	1/1  	Running	1 (14h ago)  	16h
+
+------------------------------------------
+Report ends
+------------------------------------------
